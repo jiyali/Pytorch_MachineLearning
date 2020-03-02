@@ -58,3 +58,12 @@ optimizer.step()
 pred = linear(x)
 loss = criterion(pred, y)
 print('loss after 1 step optimization: ', loss.item())
+
+
+# 保存和加载整个模型
+torch.save(linear, 'model.ckpt')
+model = torch.load('model.ckpt')
+
+# 仅保存和加载模型的参数（推荐这个方式）
+torch.save(linear.state_dict(), 'params.ckpt')
+linear.load_state_dict(torch.load('params.ckpt'))
