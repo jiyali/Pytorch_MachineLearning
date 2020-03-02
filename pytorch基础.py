@@ -51,8 +51,10 @@ loss.backward()
 print('dL/dw:', linear.weight.grad)
 print('dL/db:', linear.bias.grad)
 
+# 执行一步梯度下降
 optimizer.step()
 
+# 进行一次梯度下降之后，输出新的预测损失
 pred = linear(x)
 loss = criterion(pred, y)
 print('loss after 1 step optimization: ', loss.item())
